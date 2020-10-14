@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: admin-server
+spec:
+  selector:
+    app: petclinic
+    component: admin-server
+  type:  ClusterIP
+  ports:
+  - name:  http
+    port:  3000
+    targetPort:  3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic
+      component: admin-server
+  template:
+    metadata:
+      labels:
+        app: petclinic
+        component: admin-server
+    spec:
+      containers:
+      - name:  admin-server
+        image: registry.ellin.net/petclinic/admin-server
+        imagePullPolicy: Always
+        ports:
+            - containerPort: 3000
+      

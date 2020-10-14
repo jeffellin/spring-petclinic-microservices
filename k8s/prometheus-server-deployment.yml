@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-server
+spec:
+  selector:
+    app: petclinic
+    component: prometheus-server
+  type:  ClusterIP
+  ports:
+  - name:  http
+    port:  9090
+    targetPort:  9090
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic
+      component: prometheus-server
+  template:
+    metadata:
+      labels:
+        app: petclinic
+        component: prometheus-server
+    spec:
+      containers:
+      - name: grafana-server
+        image: registry.ellin.net/petclinic/prometheus
+        ports:
+            - containerPort: 9090
+       

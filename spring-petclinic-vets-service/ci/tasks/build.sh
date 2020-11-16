@@ -1,6 +1,9 @@
 #!/bin/bash
 
 set -eux
+
+env 
+
 export ROOT_FOLDER="$( pwd )"
 
 VERSION=$(cat version/version)

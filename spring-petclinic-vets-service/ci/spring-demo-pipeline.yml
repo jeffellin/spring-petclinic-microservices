@@ -31,6 +31,8 @@ jobs:
         params: {bump: minor}
       - task: build-project
         file: source-code/spring-petclinic-vets-service/ci/tasks/maven-build-task.yml
+        params:
+           APP_NAME: spring-petclinic-vets-service
       - put: version
         params: {file: version/version}
       - put: docker-image
@@ -39,5 +41,5 @@ jobs:
           tag_file: version/version
           tag_as_latest: true
           build_args: 
-            - ARTIFACT_NAME: spring-petclinic-vets-service
-            - DOCKERIZE_VERSION: v0.6.1
+            ARTIFACT_NAME: spring-petclinic-vets-service
+            DOCKERIZE_VERSION: v0.6.1

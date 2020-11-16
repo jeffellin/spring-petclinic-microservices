@@ -20,4 +20,4 @@ popd
 
 mkdir packed-release/target
 cp source-code/spring-petclinic-vets-service/docker/Dockerfile packed-release/target/
-cp source-code/spring-petclinic-vets-service/target/spring-petclinic-vets-service-0.0.1-SNAPSHOT.jar packed-release/target/spring-petclinic-vets-service.jar
+cp source-code/spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.2.jar packed-release/target/spring-petclinic-vets-service.jar

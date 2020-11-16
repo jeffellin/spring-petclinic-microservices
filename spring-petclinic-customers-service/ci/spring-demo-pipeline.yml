@@ -1,0 +1,46 @@
+resources:
+- name: version
+  type: semver
+  source:
+    driver: git
+    uri: git@github.com:jeffellin/spring-petclinic-microservices.git
+    branch: version
+    file: customers-version
+    private_key: ((pipeline-secret.git-private_key))
+- name: source-code
+  type: git
+  source:
+    uri: git@github.com:jeffellin/spring-petclinic-microservices.git
+    branch: k8s
+    paths: 
+      - spring-petclinic-customers-service/*
+      - ci/*
+    private_key: ((pipeline-secret.git-private_key))
+- name: docker-image
+  type: docker-image
+  source:
+    repository: ellinj/spring-petclinic-customers-service
+    username: ((pipeline-secret.docker-email))
+    password: ((pipeline-secret.docker-password))
+jobs:
+  - name: build-project
+    serial: true
+    plan:
+      - get: source-code
+        trigger: true
+      - get: version
+        params: {bump: minor}
+      - task: build-project
+        file: source-code/ci/tasks/maven-build-task.yml
+        params:
+           APP_NAME: spring-petclinic-customers-service
+      - put: version
+        params: {file: version/version}
+      - put: docker-image
+        params:
+          build: packed-release/target
+          tag_file: version/version
+          tag_as_latest: true
+          build_args: 
+            ARTIFACT_NAME: spring-petclinic-customers-service
+            DOCKERIZE_VERSION: v0.6.1

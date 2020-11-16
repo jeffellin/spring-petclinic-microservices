@@ -47,10 +47,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
         <dependency>
@@ -81,6 +77,11 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>2.0.2</version>
+        </dependency>
 
         <!-- Testing -->
         <dependency>
@@ -99,6 +100,10 @@
             <scope>test</scope>
         </dependency>
 	</dependencies>
+
+    <build>
+      <finalName>spring-petclinic-customers-service</finalName>
+    </build>
 
     <profiles>
         <profile>

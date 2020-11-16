@@ -51,6 +51,9 @@
             <scope>test</scope>
         </dependency>
 	</dependencies>
+    <build>
+      <finalName>spring-petclinic-config-server</finalName>
+    </build>
 
     <profiles>
         <profile>

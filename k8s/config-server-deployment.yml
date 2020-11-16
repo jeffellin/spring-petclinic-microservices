@@ -30,6 +30,6 @@ spec:
     spec:
       containers:
       - name: config-server
-        image: registry.ellin.net/petclinic/config-server
+        image: ellinj/pet-clinic-config-server:latest
         ports:
             - containerPort: 8888

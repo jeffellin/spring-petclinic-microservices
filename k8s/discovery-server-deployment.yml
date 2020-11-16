@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: discoery-server
-        image: registry.ellin.net/petclinic/discovery-server
+        image: ellinj/petclinic-discovery-server
         ports:
             - containerPort: 8761
         env:

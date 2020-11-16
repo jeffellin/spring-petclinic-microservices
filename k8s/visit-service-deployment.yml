@@ -30,7 +30,8 @@ spec:
     spec:
       containers:
       - name:  visits-service
-        image: registry.ellin.net/petclinic/visits-service
+        image: ellinj/pet-clinic-visits-service:latest
+        imagePullPolicy: Always
         ports:
             - containerPort: 8080
         env:

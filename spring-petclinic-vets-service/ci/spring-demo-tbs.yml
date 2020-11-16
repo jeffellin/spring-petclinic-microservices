@@ -1,0 +1,58 @@
+resources:
+- name: registry-image
+  type: docker-image
+  source:
+    repository: registry.ellin.net/foo
+    tag: bar
+    ca_certs:
+    - domain: registry.ellin.net
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        MIIEfTCCAuWgAwIBAgIQbi6rIzAto+ey0JFgdt8wmDANBgkqhkiG9w0BAQsFADBX
+        MR4wHAYDVQQKExVta2NlcnQgZGV2ZWxvcG1lbnQgQ0ExFjAUBgNVBAsMDWplZmZA
+        dWJ1bnR1LTExHTAbBgNVBAMMFG1rY2VydCBqZWZmQHVidW50dS0xMB4XDTIwMDgx
+        NzE1NDIxMVoXDTMwMDgxNzE1NDIxMVowVzEeMBwGA1UEChMVbWtjZXJ0IGRldmVs
+        b3BtZW50IENBMRYwFAYDVQQLDA1qZWZmQHVidW50dS0xMR0wGwYDVQQDDBRta2Nl
+        cnQgamVmZkB1YnVudHUtMTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGB
+        AK8n9vy+xu67ZKDeWDOwmA78thv5tyMj6URiInEjENXrM4EVk11jbvGDxgqplayx
+        Iau5uaLQoBIdzgx60koRCaFFu2nqsoC+i+yiI/4FVRKU39C1xydw2TLpDe4PB24y
+        Cw5bRAR6emdr/YdsV/M8rWzAuZTBWbrkLLGD7nMd8gUQc4ir19IzW/T5twMHkPs2
+        axM51f4M6KtkfdWb5ccdStasH68psP5DfBk+1PEnpaRseF6pAG8/eM73CJOhi57t
+        e4zmBunJgajuJHTCut9iWHuo9kp0hSTmLyzJrXLmXuoJ3cG8+528yrbCohOHk8b6
+        /7FvU4Uz0UpIiAWilXxXKQe9AL0TMLGhx7kYHa2iorOfYryEkEZNpRpEI+45F5bt
+        bqplTrgfoq4N3YW3cV/fWUpnZ70F+54q01bplD4AyK5mhriGh01zuKLbfRFhNZBx
+        TRHCZElK1fAAbB9tveu/lTNn98RoS4PZK9MaHHbtgxiTu4wX3Tlz4pcPcvuWvaWl
+        bwIDAQABo0UwQzAOBgNVHQ8BAf8EBAMCAgQwEgYDVR0TAQH/BAgwBgEB/wIBADAd
+        BgNVHQ4EFgQUq/PKZ+HEY/JDWKhBEO8Ppx8IRXIwDQYJKoZIhvcNAQELBQADggGB
+        AI2sWEsimVuQf9Alhv31ac7abxg+Guubaz7LgEBlG6fJ0iHres8BJ+VhhoF2cjeG
+        wJitYTj1tLcpZbLNIaXGmjzd7JMNxjW21616WS1qYq3ZwvzJdyHi+24PmgVUYzI4
+        F9yoiRX5PjiQoHbroVYZEtIXWbFDFv6Bd3IkPIrjIoXsv7ph7v7/V7K6wR02c1e0
+        UOeo91Q28k/mgplGMtSCRjcFI/Qowui3E8vJUaljO9nFEPGZeKlVkjgNnNqCG1pU
+        aXGIghXjO0EMcbmWWZFecWRYRTEaqbXAeqK6II8/Jrom7nAxyfyxcHEG2DxI6dYA
+        J2ESMgjP6dtHK+8NCkKCR+5pORfsr/ZmoCIK2E2D4oIV5lbFGGoTSmL+z4gwvP2D
+        pJ4gRoDS0IHhboyg7Yp7TXzm+kXrl1Fu2L9W8PVXrMNDEwmRIXt79oD8Sgn65v+Z
+        Q+bf/2Yr7cT2MNOE9B+llK4/wHDK97cRDBtVtYOrvXnOFDdsu2EjxzQKq8/YLwMI
+        cA==
+        -----END CERTIFICATE-----
+jobs:
+  - name: build-project
+    serial: true
+    plan:
+      - get: registry-image
+        trigger: true
+      - task: bump-kustomization
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: alpine/git
+          run:
+            path: sh
+            args:
+              - -exc
+              - |
+                pwd
+                ls -la
+          inputs:
+          - name: registry-image

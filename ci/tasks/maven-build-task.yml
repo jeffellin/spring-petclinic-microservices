@@ -35,4 +35,4 @@ params:
 run:
   path: /bin/bash
   args:
-    - source-code/spring-petclinic-vets-service/ci/tasks/build.sh
+    - source-code/ci/tasks/build.sh

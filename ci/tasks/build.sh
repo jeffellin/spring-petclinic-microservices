@@ -23,4 +23,4 @@ popd
 
 mkdir packed-release/target
 cp source-code/docker/Dockerfile packed-release/target/
-cp source-code/$APP_NAME/target/$APP_NAME-2.3.2.jar packed-release/target/$APP_NAME.jar
+cp source-code/$APP_NAME/target/$APP_NAME.jar packed-release/target/$APP_NAME.jar

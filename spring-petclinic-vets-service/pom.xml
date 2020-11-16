@@ -113,6 +113,11 @@
         </dependency>
     </dependencies>
 
+
+    <build>
+        <finalName>spring-petclinic-vets-service</finalName>
+    </build>
+
     <profiles>
         <profile>
             <id>buildDocker</id>

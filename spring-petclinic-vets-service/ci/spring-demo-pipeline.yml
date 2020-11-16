@@ -14,6 +14,7 @@ resources:
     branch: k8s
     paths: 
       - spring-petclinic-vets-service/*
+      - ci/*
     private_key: ((pipeline-secret.git-private_key))
 - name: docker-image
   type: docker-image

@@ -17,10 +17,10 @@ source ${SCRIPT_DIR}/mvn-tools.sh
 generate_settings
 ls
 
-pushd source-code/spring-petclinic-vets-service
+pushd source-code/$APP_NAME
 	mvn clean package -DskipTests
 popd
 
 mkdir packed-release/target
-cp source-code/spring-petclinic-vets-service/docker/Dockerfile packed-release/target/
-cp source-code/spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.2.jar packed-release/target/spring-petclinic-vets-service.jar
+cp source-code/docker/Dockerfile packed-release/target/
+cp source-code/$APP_NAME/target/$APP_NAME-2.3.2.jar packed-release/target/$APP_NAME.jar

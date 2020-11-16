@@ -14,13 +14,10 @@ source ${SCRIPT_DIR}/mvn-tools.sh
 generate_settings
 ls
 
-pushd source-code
-#    set_revision_to_pom ${VERSION}
-#    ls
+pushd source-code/spring-petclinic-vets-service
 	mvn clean package -DskipTests
 popd
 
 mkdir packed-release/target
-cp source-code/docker/Dockerfile packed-release/target/
-# cp source-code/kubernetes/*.yml packed-release/target/
-cp source-code/target/web-demo-0.0.1-SNAPSHOT.jar packed-release/target/web-demo.jar
+cp source-code/spring-petclinic-vets-service/docker/Dockerfile packed-release/target/
+cp source-code/spring-petclinic-vets-service/target/spring-petclinic-vets-service-0.0.1-SNAPSHOT.jar packed-release/target/spring-petclinic-vets-service.jar

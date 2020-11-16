@@ -10,7 +10,7 @@ image_resource:
 inputs:
   - name: source-code
   - name: version
-  - name: source-code-gitops
+
 
 outputs:
   - name: packed-release

@@ -1,10 +1,6 @@
 ls -la
-VERSION=$(cat version/version)
-MODULE=$APP_NAME
 cp -r source-code-gitops/. gitops
-
-FILE=gitops/app/locks/$MODULE.yml
-
+$FILE=gitops/app/kustomization.yml
 if [ -f $FILE ]; then
   echo "file already exists"
   rm $FILE

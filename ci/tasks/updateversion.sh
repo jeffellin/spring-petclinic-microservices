@@ -12,12 +12,14 @@ if [ -f $FILE ]; then
 fi
 
 echo "#@data/values" >> $FILE
+echo '#@ load("@ytt:overlay", "overlay")' >> $FILE
 echo "---" >> $FILE
-echo "$MODULE_KEY:" >> $FILE
-echo "  image: $VERSION" >> $FILE
+echo "image:" >> $FILE
+echo "  #@overlay/match missing_ok=True" >> $FILE
+echo "  $MODULE: $VERSION" >> $FILE
 
 cd gitops
-git config --global user.name "YOUR NAME"
+git conficdg --global user.name "YOUR NAME"
 git config --global user.email "none@none.com"
 git add .
 git commit -m "update by ci"

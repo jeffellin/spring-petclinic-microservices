@@ -1,6 +1,7 @@
 ls -la
 VERSION=$(cat version/version)
 MODULE=$APP_NAME
+MODULE_KEY="${APP_NAME//-}"
 cp -r source-code-gitops/. gitops
 
 FILE=gitops/app/locks/$MODULE.yml
@@ -12,7 +13,7 @@ fi
 
 echo "#@data/values" >> $FILE
 echo "---" >> $FILE
-echo "$MODULE:" >> $FILE
+echo "$MODULE_KEY:" >> $FILE
 echo "  image: $VERSION" >> $FILE
 
 cd gitops

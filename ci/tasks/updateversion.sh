@@ -23,3 +23,4 @@ git conficdg --global user.name "YOUR NAME"
 git config --global user.email "none@none.com"
 git add .
 git commit -m "update by ci"
+git pull -r

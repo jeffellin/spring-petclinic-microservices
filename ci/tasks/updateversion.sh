@@ -3,7 +3,7 @@ VERSION=$(cat version/version)
 MODULE=visit-service-deployment
 cp -r source-code-gitops/. gitops
 
-FILE=gitops/locks/$MODULE.yml
+FILE=gitops/app/locks/$MODULE.yml
 
 if [ -f $FILE ]; then
   echo "file already exists"

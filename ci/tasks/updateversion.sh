@@ -16,7 +16,7 @@ echo '#@ load("@ytt:overlay", "overlay")' >> $FILE
 echo "---" >> $FILE
 echo "image:" >> $FILE
 echo "  #@overlay/match missing_ok=True" >> $FILE
-echo "  $MODULE: $VERSION" >> $FILE
+echo "  $MODULE_KEY: $VERSION" >> $FILE
 
 cd gitops
 # ssh -T -o StrictHostKeyChecking=no git@github.com

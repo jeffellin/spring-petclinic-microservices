@@ -59,4 +59,4 @@ jobs:
       - put: source-code-gitops 
         params: 
           repository: gitops
-          force: true
+          rebase: true

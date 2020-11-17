@@ -19,9 +19,8 @@ echo "  #@overlay/match missing_ok=True" >> $FILE
 echo "  $MODULE: $VERSION" >> $FILE
 
 cd gitops
-ssh -T -o StrictHostKeyChecking=no git@github.com
+# ssh -T -o StrictHostKeyChecking=no git@github.com
 git conficdg --global user.name "YOUR NAME"
 git config --global user.email "none@none.com"
 git add .
 git commit -m "update by ci"
-git pull -r

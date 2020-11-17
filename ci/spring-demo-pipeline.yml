@@ -20,7 +20,7 @@ resources:
   type: git
   source:
     uri: git@github.com:jeffellin/spring-petclinic-gitops.git
-    branch: dev
+    branch: master
     private_key: ((pipeline-secret.git-private_key))
 - name: docker-image
   type: docker-image
@@ -34,13 +34,15 @@ jobs:
     plan:
       - get: source-code
         trigger: true
+      - get: source-code-gitops
+        trigger: false
       - get: version
         params: {bump: minor}
       - task: build-project
         file: source-code/ci/tasks/maven-build-task.yml
         params:
            APP_NAME: ((module))
-      - task: build-project
+      - task: update-versions
         file: source-code/ci/tasks/update-build-task.yml
         params:
            APP_NAME: ((module))

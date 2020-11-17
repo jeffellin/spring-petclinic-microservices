@@ -33,6 +33,6 @@ params:
 
 
 run:
-  path: /bin/bash
+  path: /bin/sh
   args:
     - source-code/ci/tasks/updateversion.sh

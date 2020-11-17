@@ -9,7 +9,7 @@ image_resource:
 
 inputs:
   - name: version
-  - name: spring-petclinic-gitops
+  - name: source-code-gitops
 
 
 outputs:

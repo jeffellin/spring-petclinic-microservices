@@ -16,6 +16,12 @@ resources:
       - ((module))/*
       - ci/*
     private_key: ((pipeline-secret.git-private_key))
+- name: source-code-gitops
+  type: git
+  source:
+    uri: git@github.com:jeffellin/spring-petclinic-gitops.git
+    branch: dev
+    private_key: ((pipeline-secret.git-private_key))
 - name: docker-image
   type: docker-image
   source:
@@ -34,6 +40,10 @@ jobs:
         file: source-code/ci/tasks/maven-build-task.yml
         params:
            APP_NAME: ((module))
+      - task: build-project
+        file: source-code/ci/tasks/update-build-task.yml
+        params:
+           APP_NAME: ((module))
       - put: version
         params: {file: version/version}
       - put: docker-image
@@ -44,3 +54,6 @@ jobs:
           build_args: 
             ARTIFACT_NAME: ((module))
             DOCKERIZE_VERSION: v0.6.1
+      - put: source-code-gitops 
+        params: 
+          repository: gitops

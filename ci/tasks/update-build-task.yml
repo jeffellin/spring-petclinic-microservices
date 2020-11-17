@@ -10,6 +10,7 @@ image_resource:
 inputs:
   - name: version
   - name: source-code-gitops
+  - name: source-code
 
 
 outputs:

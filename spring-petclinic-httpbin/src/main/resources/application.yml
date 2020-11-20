@@ -1,8 +1,6 @@
-server:
-  port: 5555
-keycloak:
-  auth-server-url: http://34.67.109.227:8080//auth
-  realm: petclinc
-  resource: springboot-microservice
-  credentials:
-    secret: "21faa86a-c3e8-4e76-805c-6f043b64f992"
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://34.67.109.227:8080/auth/realms/spring-cloud-gateway-realm

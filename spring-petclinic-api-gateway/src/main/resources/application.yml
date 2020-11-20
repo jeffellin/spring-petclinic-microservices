@@ -45,6 +45,8 @@ spring:
           uri: http://httpbin-service:8080
           predicates:
             - Path=/get/**
+          filters:
+            - TokenRelay
 logging:
   level:
     org:

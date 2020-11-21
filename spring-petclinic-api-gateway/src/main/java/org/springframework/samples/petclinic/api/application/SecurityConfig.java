@@ -20,7 +20,8 @@ public class SecurityConfig {
         http.logout(logout -> logout.logoutSuccessHandler(new OidcClientInitiatedServerLogoutSuccessHandler(
             clientRegistrationRepository)));
         // Require authentication for all requests
-        http.authorizeExchange().anyExchange().authenticated();
+        http.authorizeExchange()
+            .pathMatchers("/get/**","/httpbin/**").authenticated().and().authorizeExchange().anyExchange().permitAll();
         // Allow showing /home within a frame
         http.headers().frameOptions().mode(XFrameOptionsServerHttpHeadersWriter.Mode.SAMEORIGIN);
         // Disable CSRF in the gateway to prevent conflicts with proxied service CSRF

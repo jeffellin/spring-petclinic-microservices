@@ -29,6 +29,7 @@ spring:
            - Path=/api/vet/**
           filters:
            - StripPrefix=2
+           - TokenRelay
         - id: visits-service
           uri: http://visits-service:8080
           predicates:

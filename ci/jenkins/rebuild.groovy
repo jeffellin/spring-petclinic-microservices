@@ -1,6 +1,6 @@
 def apps = [
     'spring-petclinic-vets-service': [
-        buildPipeline: 'pipelines/update-k8s-app.pipeline',
+        buildPipeline: 'ci/jenkins/pipelines/update-k8s-app.pipeline',
         kenv: 'stage'
     ]
 ]

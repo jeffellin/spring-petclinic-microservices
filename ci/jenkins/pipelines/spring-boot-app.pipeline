@@ -92,7 +92,7 @@ spec:
                     sshagent(['git-jenkins']) {   
                         sh '''#!/bin/sh -e
                         
-                        kubectl get image ${APP_NAME} -n tbs-images -o json | jq -r .status.latestImage >> containerversion.txt
+                        kubectl get image ${APP_NAME} -o json | jq -r .status.latestImage >> containerversion.txt
                         export CONTAINER_VERSION=$(cat containerversion.txt)
                         cd gitops
                         kustomize edit set image ${APP_NAME}=${CONTAINER_VERSION}

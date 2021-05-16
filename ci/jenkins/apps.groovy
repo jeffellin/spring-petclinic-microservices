@@ -5,6 +5,9 @@ def apps = [
     'spring-petclinic-visits-service': [
         buildPipeline: 'ci/jenkins/pipelines/spring-boot-app.pipeline'
     ],
+    'spring-petclinic-httpbin': [
+        buildPipeline: 'ci/jenkins/pipelines/spring-boot-app.pipeline'
+    ],
     'spring-petclinic-config-server': [
         buildPipeline: 'ci/jenkins/pipelines/spring-boot-app.pipeline'
     ]

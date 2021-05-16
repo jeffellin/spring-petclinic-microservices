@@ -24,5 +24,4 @@ apps.each { name, appInfo ->
         }
     }
 }
-}
        

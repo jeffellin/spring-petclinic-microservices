@@ -42,6 +42,7 @@ apps.each { name, appInfo ->
                          key("APP_NAME")
                          value("\$.event_data.repository.name")
                          expressionType("JSONPath") //Optional, defaults to JSONPath
+                    }
                     genericVariable {
                          key("RESOURCE_URL")
                          value("\$.event_data.resources[0].resource_url")

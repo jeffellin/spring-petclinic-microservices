@@ -7,8 +7,7 @@ a buildpack update
 def apps = [
     'stage': [
         buildPipeline: 'ci/jenkins/pipelines/update-k8s-app.pipeline',
-        kenv: 'stage',
-        token: 'product'
+        token: 'stage-rebuild'
     ]
 ]
 

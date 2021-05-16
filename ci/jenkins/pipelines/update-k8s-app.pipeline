@@ -42,8 +42,7 @@ spec:
     }
 
     environment {
-        APP_NAME="${env.APP_NAME}"
-        K_ENV="stage"
+        ENV_NAME="${env.ENV_NAME}"
     }
 
     stages {
@@ -55,7 +54,7 @@ spec:
                         git(
                             poll: false,
                             changelog: false,
-                            branch: "${K_ENV}",
+                            branch: "${ENV_NAME}",
                             credentialsId: "git-jenkins",
                             url: "git@github.com:jeffellin/spring-petclinic-gitops.git"
                         )
@@ -63,18 +62,16 @@ spec:
                     sshagent(['git-jenkins']) {   
                         sh '''#!/bin/sh -xe
                         
-                        #kubectl get image ${APP_NAME} -o json | jq -r .status.latestImage >> containerversion.txt
-                        #export CONTAINER_VERSION=$(cat containerversion.txt)
                         cd gitops/app
                         printenv
-                        kustomize edit set image ${APP_NAME}=${REPO_FULL_NAME}@${DIGEST}
+                        kustomize edit set image ${APP_NAME}=harbor.ellin.net/${REPO_FULL_NAME}@${DIGEST}
                         git config --global user.name "jenkins CI"
                         git config --global user.email "none@none.com"
                         git add .
                         git diff-index --quiet HEAD || git commit -m "update by ci"
                         mkdir -p ~/.ssh
                         ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-                        git push --set-upstream origin $K_ENV
+                        git push --set-upstream origin ${ENV_NAME}
                         '''
                     }
                 }  

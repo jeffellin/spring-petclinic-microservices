@@ -1,3 +1,9 @@
+/*
+This seed job will install a pipeline to update an env based on pushes
+to the harbor repo.  A webhook needs to be configured in harbor to call jenkins
+when a new container is pushed. This will occur when a rebuild is triggered do to
+a buildpack update
+*/
 def apps = [
     'stage': [
         buildPipeline: 'ci/jenkins/pipelines/update-k8s-app.pipeline',

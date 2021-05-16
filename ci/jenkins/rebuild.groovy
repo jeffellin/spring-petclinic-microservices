@@ -40,7 +40,7 @@ apps.each { name, appInfo ->
                          expressionType("JSONPath") //Optional, defaults to JSONPath
                     }
                 }
-            token(appInfo.kenv+"-"+name)
+            token("product"`)
             printContributedVariables(true)
             printPostContent(true)
             regexpFilterText("\$TYPE")

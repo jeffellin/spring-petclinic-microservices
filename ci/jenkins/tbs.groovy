@@ -18,6 +18,9 @@ env.each { name, appInfo ->
                 sandbox()
             }
         }        
+       triggers {
+          scm('* * * * *')
+        }
         properties{
             disableConcurrentBuilds()
         }

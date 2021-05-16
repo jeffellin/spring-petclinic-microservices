@@ -1,6 +1,6 @@
 def apps = [
     'spring-petclinic-vets-service': [
-        buildPipeline: 'pipelines/spring-boot-app.pipeline'
+        buildPipeline: 'ci/jenkins/pipelines/spring-boot-app.pipeline'
     ]
 ]
 

@@ -4,7 +4,7 @@ def env = [
     ]
 ]
 
-apps.each { name, appInfo ->
+env.each { name, appInfo ->
 
     folder(name)
     pipelineJob(name+"/tbs-update") {

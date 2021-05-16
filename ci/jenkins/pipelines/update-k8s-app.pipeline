@@ -43,7 +43,7 @@ spec:
 
     environment {
         APP_NAME="${env.APP_NAME}"
-        K_ENV=stage
+        K_ENV="stage"
     }
 
     stages {

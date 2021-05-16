@@ -84,7 +84,7 @@ spec:
                         git(
                             poll: false,
                             changelog: false,
-                            branch: "main",
+                            branch: "master",
                             credentialsId: "git-jenkins",
                             url: "git@github.com:jeffellin/spring-petclinic-gitops.git"
                         )

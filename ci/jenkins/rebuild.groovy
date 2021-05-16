@@ -40,7 +40,7 @@ apps.each { name, appInfo ->
                          expressionType("JSONPath") //Optional, defaults to JSONPath
                     }
                 }
-            token("product"`)
+            token("product")
             printContributedVariables(true)
             printPostContent(true)
             regexpFilterText("\$TYPE")

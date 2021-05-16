@@ -42,8 +42,7 @@ spec:
     }
 
     environment {
-        APP_NAME="${env.APP_NAME}",
-        DIGEST="${DIGEST}"
+        APP_NAME="${env.APP_NAME}"
     }
 
     stages {

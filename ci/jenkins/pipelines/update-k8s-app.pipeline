@@ -61,7 +61,7 @@ spec:
                         )
                     }
                     sshagent(['git-jenkins']) {   
-                        sh '''#!/bin/sh -e
+                        sh '''#!/bin/sh -xe
                         
                         #kubectl get image ${APP_NAME} -o json | jq -r .status.latestImage >> containerversion.txt
                         #export CONTAINER_VERSION=$(cat containerversion.txt)

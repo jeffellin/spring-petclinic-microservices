@@ -1,6 +1,0 @@
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://34.67.109.227:8080/auth/realms/spring-cloud-gateway-realm

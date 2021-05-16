@@ -79,7 +79,7 @@ spec:
                             changelog: false,
                             branch: "main",
                             credentialsId: "git-jenkins",
-                            url: "git@github.com:jeffellin/spring-petclinic-gitops.git
+                            url: "git@github.com:jeffellin/spring-petclinic-gitops.git"
                         )
                     }
                     sshagent(['git-jenkins']) {   

@@ -47,7 +47,7 @@ spec:
                         poll: true,
                         changelog: true,
                         branch: "main",
-                        credentialsId: "GIT",
+                        credentialsId: "git-jenkins",
                         url: "git@github.com:jeffellin/${APP_NAME}.git"
                     )
                     sh 'git rev-parse HEAD > git-commit.txt'
@@ -78,11 +78,11 @@ spec:
                             poll: false,
                             changelog: false,
                             branch: "main",
-                            credentialsId: "GIT",
+                            credentialsId: "git-jenkins",
                             url: "git@github.com:jeffellin/spring-petclinic-gitops.git
                         )
                     }
-                    sshagent(['GIT']) {   
+                    sshagent(['git-jenkins']) {   
                         sh '''#!/bin/sh -e
                         
                         kubectl get image ${APP_NAME} -n tbs-images -o json | jq -r .status.latestImage >> containerversion.txt

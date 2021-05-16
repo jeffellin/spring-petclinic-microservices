@@ -66,7 +66,7 @@ spec:
                         #kubectl get image ${APP_NAME} -o json | jq -r .status.latestImage >> containerversion.txt
                         #export CONTAINER_VERSION=$(cat containerversion.txt)
                         cd gitops/app
-                        kustomize edit set image ${APP_NAME}=${DIGEST}
+                        kustomize edit set image ${APP_NAME}=${REPO_FULL_NAME}@${DIGEST}
                         git config --global user.name "jenkins CI"
                         git config --global user.email "none@none.com"
                         git add .

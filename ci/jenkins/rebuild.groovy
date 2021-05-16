@@ -1,7 +1,7 @@
 def apps = [
     'spring-petclinic-vets-service': [
         buildPipeline: 'pipelines/update-k8s-app.pipeline'
-        k_env: stage
+        'k_env': 'stage'
     ]
 ]
 

@@ -71,7 +71,7 @@ spec:
         }
         
 }
-
+}
 def create_images(list) {
     for (int i = 0; i < list.size(); i++) {
         sh """#!/bin/sh -ex

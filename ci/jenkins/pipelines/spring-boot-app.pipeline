@@ -16,6 +16,10 @@ spec:
    - name: secret-volume
      secret:
        secretName: pks-cicd  
+  hostAliases:
+  - ip: 192.168.1.80
+    hostnames:
+    - "harbor.ellin.net"
   containers:
   - name: k8s
     image: harbor.ellin.net/library/docker-build

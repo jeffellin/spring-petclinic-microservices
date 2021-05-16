@@ -1,0 +1,285 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2021-05-16T17:50:22Z"
+  generation: 318
+  managedFields:
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:destination:
+          .: {}
+          f:namespace: {}
+          f:server: {}
+        f:project: {}
+        f:source:
+          .: {}
+          f:path: {}
+          f:repoURL: {}
+          f:targetRevision: {}
+        f:syncPolicy:
+          .: {}
+          f:syncOptions: {}
+      f:status:
+        .: {}
+        f:health: {}
+        f:summary: {}
+        f:sync:
+          .: {}
+          f:comparedTo:
+            .: {}
+            f:destination: {}
+            f:source: {}
+    manager: argocd-server
+    operation: Update
+    time: "2021-05-16T19:52:50Z"
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:health:
+          f:status: {}
+        f:history: {}
+        f:operationState:
+          .: {}
+          f:finishedAt: {}
+          f:message: {}
+          f:operation:
+            .: {}
+            f:initiatedBy:
+              .: {}
+              f:username: {}
+            f:retry: {}
+            f:sync:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:syncOptions: {}
+              f:syncStrategy:
+                .: {}
+                f:hook: {}
+          f:phase: {}
+          f:startedAt: {}
+          f:syncResult:
+            .: {}
+            f:resources: {}
+            f:revision: {}
+            f:source:
+              .: {}
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+        f:reconciledAt: {}
+        f:resources: {}
+        f:sourceType: {}
+        f:summary:
+          f:images: {}
+        f:sync:
+          f:comparedTo:
+            f:destination:
+              f:namespace: {}
+              f:server: {}
+            f:source:
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+          f:revision: {}
+          f:status: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2021-05-16T20:00:39Z"
+  name: pet-clinic-dev
+  namespace: argocd
+  resourceVersion: "287927"
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/pet-clinic-dev
+  uid: 2323a408-a4b6-41b4-8ccc-bc6fdea83362
+spec:
+  destination:
+    namespace: dev
+    server: https://small.pks.ellin.net:8443
+  project: default
+  source:
+    path: app
+    repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2021-05-16T18:07:14Z"
+    deployedAt: "2021-05-16T18:07:19Z"
+    id: 0
+    revision: c05321a65e6f7084dbd5fb67665ba67555c79724
+    source:
+      path: app
+      repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+      targetRevision: master
+  operationState:
+    finishedAt: "2021-05-16T19:49:58Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        resources:
+        - group: apps
+          kind: Deployment
+          name: api-gateway-deployment
+          namespace: dev
+        revision: ebd2d567244d7f4a9682aad5da5d7213a87e6a07
+        syncOptions:
+        - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2021-05-16T19:49:56Z"
+    syncResult:
+      resources:
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/api-gateway-deployment configured
+        name: api-gateway-deployment
+        namespace: dev
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: ebd2d567244d7f4a9682aad5da5d7213a87e6a07
+      source:
+        path: app
+        repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+        targetRevision: master
+  reconciledAt: "2021-05-16T19:59:52Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: api-gateway
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: config-server
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: customer-service
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: httpbin-service
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: tracing-server
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: vets-service
+    namespace: dev
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: visits-service
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: api-gateway-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: config-server-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: customer-service-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: httpbin-service-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: tracing-server-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: vets-service-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: visits-service-deployment
+    namespace: dev
+    status: Synced
+    version: v1
+  sourceType: Kustomize
+  summary:
+    images:
+    - ellinj/spring-petclinic-customers-service:0.21.0
+    - harbor.ellin.net/dev/spring-petclinic-api-gateway@sha256:3a91cd675c78ba5c0ee25c6fed6d00be8a39f7b92cdb2a9b4a5294aa1203dfd6
+    - harbor.ellin.net/dev/spring-petclinic-config-server@sha256:8ab3bbc454f41ccd11d41000a39035b57be77a8f6d82fdb8653f52c0fda73fa9
+    - harbor.ellin.net/dev/spring-petclinic-httpbin@sha256:7cabacb327233afe68ad94d0281f48a13dd921ca8da9535c52e2b17abbb2c187
+    - harbor.ellin.net/dev/spring-petclinic-vets-service@sha256:fa521bd9a601d0c45fddb298e0f324a9978dabf4fc9c73df118d9d917a36d9a0
+    - harbor.ellin.net/dev/spring-petclinic-visits-service@sha256:9ec44b5172ed0f2d4fc6f4c31c1d8fd748c743c89440adf381133c352d12c534
+    - openzipkin/zipkin
+  sync:
+    comparedTo:
+      destination:
+        namespace: dev
+        server: https://small.pks.ellin.net:8443
+      source:
+        path: app
+        repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+        targetRevision: master
+    revision: 54086a1dc7818a96421fba225c69976edf9f3c6b
+    status: Synced

@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pet-clinic-stage
+  namespace: argocd
+spec:
+  destination:
+    namespace: stage
+    server: https://small.pks.ellin.net:8443
+  project: default
+  source:
+    path: app
+    repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+    targetRevision: stage
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2021-05-16T18:07:14Z"
+    deployedAt: "2021-05-16T18:07:19Z"
+    id: 0
+    revision: c05321a65e6f7084dbd5fb67665ba67555c79724
+    source:
+      path: app
+      repoURL: git@github.com:jeffellin/spring-petclinic-gitops.git
+      targetRevision: stage

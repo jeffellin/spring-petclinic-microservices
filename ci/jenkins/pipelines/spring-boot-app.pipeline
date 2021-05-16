@@ -102,6 +102,7 @@ spec:
                         git diff-index --quiet HEAD || git commit -m "update by ci"
                         mkdir -p ~/.ssh
                         ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+                        git pull -r
                         git push --set-upstream origin master
                         '''
                     }

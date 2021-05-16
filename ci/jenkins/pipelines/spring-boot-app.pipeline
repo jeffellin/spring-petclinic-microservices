@@ -23,7 +23,7 @@ spec:
     - sleep
     env:
       - name: KUBECONFIG
-        value: "/tmp/config/kubeconfig"
+        value: "/tmp/config/jenkins-sa"
     volumeMounts:
     - name: secret-volume
       readOnly: true

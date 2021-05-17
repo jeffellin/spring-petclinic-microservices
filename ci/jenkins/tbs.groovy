@@ -1,6 +1,6 @@
 def env = [
     'stage': [
-        buildPipeline: 'ci/jenkins/pipelines/tbs-update-env.groovy'
+        buildPipeline: 'ci/jenkins/pipelines/tbs-update-env.pipeline'
     ]
 ]
 
